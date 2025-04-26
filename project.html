@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projects</title>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <link rel="stylesheet" href="project.css" />
+      
+    </head>
+    <body>
+        <h1>Projects</h1>
+        <button class="btn" id="btn" onclick="openDialog()"><i class="fa fa-plus"></i>ADD PROJECT</button>
+        <label for="search">
+            <input type="search" id="search" placeholder="Search for Projects" />
+            <button class="btn1" onclick="search()">
+                <i class="fa fa-search"></i></button>
+        </label>
+        <nav>
+            <a>OverDue</a>
+            <a>Today</a>
+            <a>Upcoming</a>
+        </nav>
+        <div id="addProject">
+            <form id="projectForm">
+                <label for="name">Project Name : 
+                    <input type="text" id="projectName"  placeholder="Enter your project name" required>
+                </label><br></br>
+                <label for="members">Team Members :
+                    <textarea id="members" placeholder="Enter the team members" required></textarea>
+                </label><br></br>
+                <label for="deadline">Deadline :
+                    <input type="date" id="projectDeadline" required>
+                </label><br></br>
+                <label for="members">Team Members :
+                    <button type="button" id="addMembersBtn" onclick="addMembers()">ADD TEAM MEMBERS</button><br></br>
+                </label>
+                <label for="addProject">
+                    <button type="submit" id="addProjectBtn" onclick="addToList()">Add Project</button>
+                </label>
+                <label for="cancel">
+                    <button type="button" id="cancelBtn" onclick="closeDialog()">Cancel</button>
+            </form>
+        </div>
+        <div id="projectList">
+            <table class="projectTable" id="projectTable">
+                <thead>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <th>TEAM MEMBERS</th>
+                        <th>DESCRIPTION</th>
+                        <th>DEADLINE</th>
+                        <th>STATUS</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <script src="project.js"></script>
+    </body>
+</html>

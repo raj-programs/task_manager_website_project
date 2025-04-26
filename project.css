@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+}
+#addProject{
+    background-color: #ffffff;
+    color : #0c121d;
+    width: 100%;
+    padding: 2%;
+    font-size: 30px;
+    margin: 2%;
+    border-radius: 5px;
+    border: 1px solid #a3c5f1;
+    display: none;
+    box-sizing: border-box;
+}
+.projectTable{
+    width: 100%;
+    border: 1px solid #a3c5f1;
+    border-collapse: collapse;
+    margin-top: 2%;
+    font-size: 20px;
+    color :#334663;
+    box-sizing: border-box;
+    text-align: center;
+}

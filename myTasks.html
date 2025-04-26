@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>My Tasks</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="myTasks.css" />
+   
+    </head>
+<body>
+  <h1>My Tasks</h1>
+  <button class="btn" onclick="openDialog()"><i class="fa fa-plus"></i> Add Task</button>
+  <input type="search" placeholder="Search for Tasks" /><button class="btn1" onclick="search()">
+    <i class="fa fa-search"></i>
+  </button>
+  <hr>
+  
+
+  <nav>
+    <a onclick="display1()" id="list" on>List</a>
+   <a onclick="display2()" id="deadline"> Deadline</a>
+        <a onclick="display3()" id="priority">Priority</a>
+           <a onclick="display4()" id="calender"> Calender</a>
+  </nav>
+  <div id="task_container">
+    <table id="task_table">
+        <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Assignee</th>
+        </tr>
+        </thead>
+        <tbody class="task_table_body">
+            
+
+        </tbody>
+    </table>
+
+  </div>
+  <div id="addTask">
+    <form onSubmit="addToTable(); return true;">
+      <h2>New Task</h2>
+      <label for="taskName">Task Name:</label>
+      <input type="text" id="taskName" name="taskName" placeholder="Enter the task name" required><br></br>
+      <label for="Assignee">Assignee:</label>
+      <input type="text" id="Assignee" name="Assignee" required><br></br>
+        <label for="Deadline">Deadline:</label>
+        <input type="date" id="Deadline" name="Deadline" required><p id="message"></p><br></br>
+        <label for="Priority">Priority:</label>
+        <select id="Priority" name="Priority" required>
+            <option value="" disabled selected>Select Priority</opt<p>
+            <option value="High">High</option>
+            <option value="Medium">Mid</option>
+            <option value="Low">Low</option>
+            </select><br></br>
+        <section id="buttoncontainer">
+        <button type="submit" class="btn2" onclick="addToTable()">Create Task</button>
+        <button class="btn2" onclick="hideDialog()">Cancel</button>
+        </section>
+</form>
+    
+  </div>
+  <div id="deadline_container">
+    <table id="Ntable">
+      <thead>
+        <tr>
+            <th>TASK NAME</th>
+            <th>DEADLINE</th>
+            </tr>
+            <tbody>
+
+            </tbody>
+            
+    </table>
+  </div>
+
+  <div id="priority_container">
+   
+    <button id="Pbtn" onclick="priorityList()">Click Here to check your task Priority</button>
+    </div>
+
+    <div id="priority_container1">
+    <table id="Ptable">
+    <thead>
+        <tr>
+            <th>TASK NAME</th>
+            <th>PRIORITY</th>
+        </tr>
+    </thead>
+      <tbody>
+
+      </tbody>
+           </table>
+           </div>
+  <div id="calander_conatiner">
+    
+    
+
+  </div>
+  <script src="myTasks.js"></script>
+    
+</body>
+</html>
