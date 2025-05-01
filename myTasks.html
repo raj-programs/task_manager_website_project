@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Tasks</title>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
   <link rel="stylesheet" href="myTasks.css" />
-   
-    </head>
+</head>
 <body>
   <h1>My Tasks</h1>
   <button class="btn" onclick="openDialog()"><i class="fa fa-plus"></i> Add Task</button>
-  <input type="search" placeholder="Search for Tasks" /><button class="btn1" onclick="search()">
+  <input type="search" placeholder="Search for Tasks" /><button class="btn1" onclick="search()" title="Search">
     <i class="fa fa-search"></i>
   </button>
   <hr>
@@ -60,7 +60,7 @@
             </select><br></br>
         <section id="buttoncontainer">
         <button type="submit" class="btn2" onclick="addToTable()">Create Task</button>
-        <button class="btn2" onclick="hideDialog()">Cancel</button>
+        <button type="button" class="btn2" onclick="hideDialog()">Cancel</button>
         </section>
 </form>
     
@@ -78,11 +78,6 @@
             
     </table>
   </div>
-
-  <div id="priority_container">
-   
-    <button id="Pbtn" onclick="priorityList()">Click Here to check your task Priority</button>
-    </div>
 
     <div id="priority_container1">
     <table id="Ptable">
