@@ -114,21 +114,6 @@ h2{
     flex-direction: row;
     gap: 40px;
 }
-.btn3{
-    background-color: #0c6478;
-    color: #ffffff;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    padding: 10%;
-}
-.btn4{
-    background-color: #0c6478;
-    color: #ffffff;
-    margin-bottom: 15px;
-    padding: 10%;
-    border-radius: 5px;
-}
-
 th{
     font-size: 25px;
     height: 35px;
