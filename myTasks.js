@@ -94,20 +94,16 @@ document.querySelector(".btn3").style.display = "none";
 function display1() {
 document.getElementById("task_container").style.display = "block";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("priority_container").style.display = "none";
-document.getElementById("calender_container").style.display = "none";
+document.getElementById("calander_container").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
-document.getElementById("Pbtn").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
 }
 function display2() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "flex";
-document.getElementById("priority_container").style.display = "none";
-document.getElementById("calender_container").style.display = "none";
+document.getElementById("calander_container").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
-document.getElementById("Pbtn").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
 
@@ -115,11 +111,10 @@ document.getElementById("addTask").style.display = "none";
 function display3() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("priority_container").style.display = "flex";
-document.getElementById("calender_container").style.display = "none";
-document.getElementById("priority_container1").style.display = "none";
-document.getElementById("Pbtn").style.display = "block";
+document.getElementById("calander_container").style.display = "none";
+document.getElementById("priority_container1").style.display = "flex";
 document.getElementById("addTask").style.display = "none";
+priorityList();
 
 
 
@@ -130,10 +125,8 @@ document.getElementById("addTask").style.display = "none";
 function display4() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("priority_container").style.display = "none";
-document.getElementById("calender_container").style.display = "block";
+document.getElementById("calander_container").style.display = "block";
 document.getElementById("priority_container1").style.display = "none";
-document.getElementById("Pbtn").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
 
