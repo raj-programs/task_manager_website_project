@@ -5,6 +5,30 @@ function openDialog(){
 function closeDialog(){
     document.getElementById("addProject").style.display = "none";
 }
+function addMemberField() {
+    const container = document.getElementById("membersContainer");
+    const newMemberInput = document.createElement("input");
+
+    newMemberInput.type = "text";
+    newMemberInput.className = "memberInput"; 
+    newMemberInput.placeholder = "Enter team member name";
+
+    container.appendChild(newMemberInput);
+}
+
+function collectTeamMembers() {
+    const members = document.querySelectorAll(".memberInput");
+    const teamMembers = [];
+
+    members.forEach(member => {
+        if (member.value.trim() !== "") {
+            teamMembers.push(member.value.trim());
+        }
+    });
+
+    console.log("Team Members:", teamMembers);
+}
+
 function addToList(){
     const projectName = document.getElementById("projectName").value;
     const projectDescription = document.getElementById("projectDescription").value;

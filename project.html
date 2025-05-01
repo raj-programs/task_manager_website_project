@@ -26,14 +26,15 @@
                 <label for="name">Project Name : 
                     <input type="text" id="projectName"  placeholder="Enter your project name" required>
                 </label><br></br>
-                <label for="members">Team Members :
-                    <textarea id="members" placeholder="Enter the team members" required></textarea>
-                </label><br></br>
+                <label for="description">Description : 
+                    <textarea id="description" rows="4" cols="50" placeholder="Enter the project description" required></textarea>
                 <label for="deadline">Deadline :
                     <input type="date" id="projectDeadline" required>
                 </label><br></br>
                 <label for="members">Team Members :
+                    <input type="text" id="members" placeholder="Enter the team members" required>                    
                     <button type="button" id="addMembersBtn" onclick="addMembers()">ADD TEAM MEMBERS</button><br></br>
+                    <button type="button" id=submitBtn onclick="collectTeamMembers()">OK</button>
                 </label>
                 <label for="addProject">
                     <button type="submit" id="addProjectBtn" onclick="addToList()">Add Project</button>
