@@ -31,21 +31,32 @@ function addToTable(){
         alert("Please fill in all fields.");
     }
 }
-function search() {
-    document.querySelector("input[type='search']").addEventListener("input", function() {
-        const searchTerm = this.value.toLowerCase();
-        const rows = document.querySelectorAll("table tbody tr");
-        rows.forEach(row => {
-            const taskName = row.cells[0].textContent.toLowerCase();
-            if (taskName.includes(searchTerm)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    });
+function searchTask() {
+    const searchValue = document.getElementById("searchTask").value.toLowerCase();
+    const tableBody = document.querySelector("#task_table tbody");
+    const rows = tableBody.getElementsByTagName("tr");
+    let found = false;
 
+    for (let row of rows) {
+        const taskNameCell = row.cells[0]; // Task Name is in the first column
+        if (taskNameCell.textContent.toLowerCase() === searchValue) {
+            document.getElementById("searchResult").innerHTML = `
+                <strong>Task Found:</strong> 
+                <br> Task Name: ${row.cells[0].textContent}
+                <br> Assignee: ${row.cells[1].textContent}
+                <br> Deadline: ${row.cells[2].textContent}
+                <br> Priority: ${row.cells[3].textContent}
+            `;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        document.getElementById("searchResult").innerHTML = "No matching task found!";
+    }
 }
+
 function progress() {
     const rows = document.querySelectorAll("table tbody tr");
     rows.forEach(row => {
@@ -94,57 +105,65 @@ document.querySelector(".btn3").style.display = "none";
 function display1() {
 document.getElementById("task_container").style.display = "block";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calander_container").style.display = "none";
+document.getElementById("calendar_container").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
+}
+
+function sortTableByDeadline() {
+    const table = document.getElementById("Ntable");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr")); // Convert NodeList to Array
+
+    // Sort rows based on the deadline column (2nd column)
+    rows.sort((rowA, rowB) => {
+        const dateA = new Date(rowA.cells[1].textContent);
+        const dateB = new Date(rowB.cells[1].textContent);
+        return dateA - dateB; // Sort in ascending order
+    });
+
+    // Reorder rows in table
+    tbody.innerHTML = ""; // Clear old rows
+    rows.forEach(row => tbody.appendChild(row));
 }
 function display2() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "flex";
-document.getElementById("calander_container").style.display = "none";
+document.getElementById("calendar_container").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
-
-
+sortTableByDeadline(); 
 }
+
+
 function display3() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calander_container").style.display = "none";
-document.getElementById("priority_container1").style.display = "flex";
+document.getElementById("calendar_container").style.display = "none";
 document.getElementById("addTask").style.display = "none";
-priorityList();
-
-
-
-
-     
+document.getElementById("priority_container1").style.display = "flex";
+const Name = document.getElementById("taskName").value;
+const priority = document.getElementById("Priority").value;
+ const table = document.getElementById("Ptable").querySelector("tbody");
+ const newRow = document.createElement("tr");
+ newRow.innerHTML = `
+     <td>${Name}</td>
+     <td>${priority}</td>
+ `;
+ table.appendChild(newRow);
+ document.getElementById("taskName").value = "";
 }
+
 
 function display4() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calander_container").style.display = "block";
+document.getElementById("calendar_container").style.display = "block";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
 
-
-
-}
-function priorityList(){
-     document.getElementById("priority_container1").style.display = "flex";
-    document.getElementById("Pbtn").style.display = "none";
-    const Name = document.getElementsById("taskName").value;
-    const priority = document.getElementById("Priority");
-const selectedValue = priority.value;
-const table = document.getElementById("Ptable").querySelector("tbody");
-const newRow = table.insertRow();
-const newCell1 = newRow.insertCell(0);
-newCell1.textContent = Name;
-const newCell2 = newRow.insertCell(1);
-newCell2.textContent = selectedValue;
 }
 
 
