@@ -1,19 +1,27 @@
 .btn{
-    background-color: #031930;
-    color : #b3d6f9;
+    background-color: white;
+    color : #6E6E73;
     width: 30%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 60px;
     font-size: 1.6rem;
+    border-radius: 5px ;
+    
+}
+.searchbar{
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
 }
 body{
-    background-color: #d1dded;
+    background-color: #fafafc;
 }
+
 input{
     width: 55%;
-    padding: 2%;
+    padding: 1.8%;
     font-size: 30px;
     margin-left: 5px;
     display: inline-flex;
@@ -21,10 +29,11 @@ input{
     align-items: center;
     height: 60px;
     font-size: 1.6rem;
+    border-radius: 5px ;
 }
 .btn1{
-    background-color: #031930;
-    color : #b3d6f9;
+    background-color: white;
+    color : #6E6E73;
     width: 10%;
     display: inline-flex;
     justify-content: center;
@@ -33,28 +42,37 @@ input{
     font-size: 1.6rem;
     font-size: 30px;
     margin-left: 2px;
+    border-radius: 5px ;
 }
 h1{
-    color :#223a59;
+    color : #1D1d1F;
     font-size: 50px;
     text-align: center;
+    height: 70px;
+
+    width: 100%;
+    
 }
 nav{
     height: 60px;
     font-size: 1.75rem;
-    border-right: 100%;
-    border-left: 100%;
-    background-color: #05355d;
-    border-color: #031930;
+    border: black;
+    background-color: #fafafc;
+    
     text-align: center;
     display: flex;
     justify-content: space-evenly;  
     align-items: center;  
     word-spacing: 10px;
+
 }
 a{
     text-decoration: none;
-    color:#feba53;
+    color:#ff3c26;
+    font-weight: 600;
+    border: 2px solid #1D1d1F;
+    padding: 5px 30px 5px 30px;
+    border-radius: 5px;
     transition: all 0.05s linear 0s;
 }
 
@@ -117,4 +135,17 @@ h2{
 th{
     font-size: 25px;
     height: 35px;
+}
+
+#deadline_container{
+    display: none;  
+
+}
+#priority_container1{
+    display: none;  
+
+}
+
+#Plus{
+    padding-right: 10px;
 }

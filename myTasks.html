@@ -8,16 +8,29 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
-  <link rel="stylesheet" href="myTasks.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<link rel="stylesheet" href="myTasks.css" />
 </head>
 <body>
-  <h1>My Tasks</h1>
-  <button class="btn" onclick="openDialog()"><i class="fa fa-plus"></i> Add Task</button>
+
+<div id="Heading">
+<h1><i class="fa-regular fa-pen-to-square"></i> My Tasks </h1>
+<img src="Task.png" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
+<img src="TaskR.png" alt="Task" height="120px" style="z-index: 1; position: absolute; left: 5px; top: 5px;">
+</div> 
+
+  <div class="searchbar">
+  <button class="btn" onclick="openDialog()"><i class="fa fa-plus" id="Plus"></i> Add Task</button>
   <input type="search" placeholder="Search for Tasks" /><button class="btn1" onclick="search()" title="Search">
     <i class="fa fa-search"></i>
   </button>
+</div>
+<br>
   <hr>
-  
+<br>  
 
   <nav>
     <a onclick="display1()" id="list" on>List</a>
@@ -25,6 +38,7 @@
         <a onclick="display3()" id="priority">Priority</a>
            <a onclick="display4()" id="calender"> Calender</a>
   </nav>
+
   <div id="task_container">
     <table id="task_table">
         <thead>
@@ -93,8 +107,11 @@
            </table>
            </div>
   <div id="calander_container">
+    
+    
 
   </div>
   <script src="myTasks.js"></script>
+    
 </body>
 </html>
