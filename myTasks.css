@@ -58,7 +58,7 @@ nav{
     font-size: 1.75rem;
     border: black;
     background-color: #fafafc;
-    
+    cursor: pointer;
     text-align: center;
     display: flex;
     justify-content: space-evenly;  
@@ -66,7 +66,7 @@ nav{
     word-spacing: 10px;
 
 }
-a{
+#navigation{
     text-decoration: none;
     color:#ff3c26;
     font-weight: 600;

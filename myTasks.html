@@ -13,13 +13,25 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
 <link rel="stylesheet" href="myTasks.css" />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
 </head>
 <body>
 
 <div id="Heading">
 <h1><i class="fa-regular fa-pen-to-square"></i> My Tasks </h1>
-<img src="Task.png" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
-<img src="TaskR.png" alt="Task" height="120px" style="z-index: 1; position: absolute; left: 5px; top: 5px;">
+<img src="Task.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
+<img src="TaskR.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; left: 5px; top: 5px;">
 </div> 
 
   <div class="searchbar">
@@ -31,14 +43,14 @@
 <br>
   <hr>
 <br>  
-
+<div id="navigation">
   <nav>
     <a onclick="display1()" id="list" on>List</a>
    <a onclick="display2()" id="deadline"> Deadline</a>
         <a onclick="display3()" id="priority">Priority</a>
            <a onclick="display4()" id="calender"> Calender</a>
   </nav>
-
+  </div>
   <div id="task_container">
     <table id="task_table">
         <thead>
@@ -106,11 +118,7 @@
       </tbody>
            </table>
            </div>
-  <div id="calander_container">
-    
-    
-
-  </div>
+  <div id="calendar"></div>
   <script src="myTasks.js"></script>
     
 </body>

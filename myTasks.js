@@ -23,9 +23,6 @@ function addToTable(){
         table.appendChild(newRow);
         document.getElementById("taskName").value = "";
         hideDialog();
-
-
-
     }
     else {
         alert("Please fill in all fields.");
@@ -105,7 +102,7 @@ document.querySelector(".btn3").style.display = "none";
 function display1() {
 document.getElementById("task_container").style.display = "block";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calendar_container").style.display = "none";
+document.getElementById("calendar").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 
@@ -130,7 +127,7 @@ function sortTableByDeadline() {
 function display2() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "flex";
-document.getElementById("calendar_container").style.display = "none";
+document.getElementById("calendar").style.display = "none";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 sortTableByDeadline(); 
@@ -140,7 +137,7 @@ sortTableByDeadline();
 function display3() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calendar_container").style.display = "none";
+document.getElementById("calendar").style.display = "none";
 document.getElementById("addTask").style.display = "none";
 document.getElementById("priority_container1").style.display = "flex";
 const Name = document.getElementById("taskName").value;
@@ -159,11 +156,9 @@ const priority = document.getElementById("Priority").value;
 function display4() {
 document.getElementById("task_container").style.display = "none";
 document.getElementById("deadline_container").style.display = "none";
-document.getElementById("calendar_container").style.display = "block";
+document.getElementById("calendar").style.display = "flex";
 document.getElementById("priority_container1").style.display = "none";
 document.getElementById("addTask").style.display = "none";
-
-
 }
 
 
