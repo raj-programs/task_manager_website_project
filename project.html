@@ -13,14 +13,16 @@
         <button class="btn" id="btn" onclick="openDialog()"><i class="fa fa-plus"></i>ADD PROJECT</button>
         <label for="search">
             <input type="search" id="search" placeholder="Search for Projects" />
-            <button class="btn1" onclick="search()">
+            <button class="btn" onclick="search()">
                 <i class="fa fa-search"></i></button>
         </label>
+        <hr>
         <nav>
             <a>OverDue</a>
             <a>Today</a>
             <a>Upcoming</a>
         </nav>
+        <hr>
         <div id="addProject">
             <form id="projectForm">
                 <label for="name">Project Name : 
@@ -28,14 +30,15 @@
                 </label><br></br>
                 <label for="description">Description : 
                     <textarea id="description" rows="4" cols="50" placeholder="Enter the project description" required></textarea>
+                    </label><br></br>
                 <label for="deadline">Deadline :
                     <input type="date" id="projectDeadline" required>
                 </label><br></br>
                 <label for="members">Team Members :
                     <input type="text" id="members" placeholder="Enter the team members" required>                    
-                    <button type="button" id="addMembersBtn" onclick="addMembers()">ADD TEAM MEMBERS</button><br></br>
+                    <button type="button" id="addMembersBtn" onclick="addMembers()">ADD TEAM MEMBERS</button>
                     <button type="button" id=submitBtn onclick="collectTeamMembers()">OK</button>
-                </label>
+                </label><br></br>
                 <label for="addProject">
                     <button type="submit" id="addProjectBtn" onclick="addToList()">Add Project</button>
                 </label>
