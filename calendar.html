@@ -4,20 +4,138 @@
     <meta charset="UTF-8">
     <title>Task Manager Calendar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
-    <script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Fixed Top Bar */
+      .navhead {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-btn {
+        font-size: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #111;
+      }
+
+      .user-icon {
+        font-size: 30px;
+        color: #333;
+        cursor: pointer;
+        padding-right: 2%;
+        
+      }
+
+      /* Sidebar Navigation */
+      .side-nav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.3s;
+        padding-top: 60px;
+        z-index: 2000;
+      }
+
+      .side-nav a {
+        padding: 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .side-nav a:hover {
+        background-color: #575757;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+      }
+
+      /* Calendar Container */
+      #calendar {
+        margin-top: 70px;
+        padding: 15px;
+        transition: margin-left 0.3s ease;
+      }
+
+      /* When sidebar is open */
+      .shift-calendar {
+        margin-left: 250px;
+      }
+    </style>
+
+    <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar')
+        const calendarEl = document.getElementById('calendar');
         const calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth'
-        })
-        calendar.render()
-      })
+        });
+        calendar.render();
+      });
 
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("calendar").classList.add("shift-calendar");
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("calendar").classList.remove("shift-calendar");
+      }
     </script>
   </head>
   <body>
-    <div id='calendar'></div>
+
+    <!-- Fixed Top Bar -->
+    <div class="navhead">
+      <button class="menu-btn" onclick="openNav()">☰</button>
+      <i class="fa-regular fa-circle-user user-icon"></i>
+    </div>
+
+    <!-- Sliding Sidebar -->
+    <div id="mySidenav" class="side-nav">
+      <span class="close-btn" onclick="closeNav()">×</span>
+      <a href="calendar.html">Home</a>
+      <a href="myTasks.html">My Task</a>
+      <a href="project.html">Project</a>
+      <a href="#about-me">About Me</a>
+    </div>
+
+    <!-- Calendar -->
+    <div id="calendar"></div>
+
   </body>
 </html>
