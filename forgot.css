@@ -1,0 +1,51 @@
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form
+        {
+        text-align: center;
+        width: 50%;
+        border: 1px solid black; 
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+
+    }
+
+        a:link, a:visited {
+  background-color: white;
+  color: rgb(20, 175, 18);;
+  padding:0.5% 2% ;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid rgb(20, 175, 18);
+  display: inline-block;
+  margin-top: 1vh;
+  margin-bottom:20px;
+  ;
+}
+
+a:hover, a:active {
+  background-color: rgb(20, 175, 18);
+    color: white;
+}
+    input{
+    width:70%;
+    padding: 12px 20px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+    border: 2px solid rgb(20, 175, 18);
+    border-radius: 4px;
+    font-size: 20px;
+}
+/* display: inline-flex; justify-content: center; align-items: center; */

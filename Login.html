@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+<header style="display: inline-flex; gap: 10px; width: 100%; justify-content: center; align-items: center;">
+    <img src="Logo.jpg" alt="Logo" height="120vh" style=" padding: 4px; border-radius: 50%;">
+        <div class="company_description" style="margin-left: 20px; margin-top: 20px;">
+        <p style="font-size: 30px; color: #1d1d1f; margin: 0px;"> Task Sphere</p> 
+        <p style="font-size: 20px; color: #6e6e73; margin: 0px">Get It Done</p>    
+    </div>
+</header>
+<div class="scontainer">
+        <div class="form-container">
+            <form id="loginForm">
+                
+                    <h1 style="margin-bottom: 0.2vh;">Login</h1>
+                    
+                    <P class="p1"><b><i>Task Sphere<br>Your Personal Manager !!</i></b></P>
+             
+                <label for="name">Enter the username:</label>
+                <input type="text" id="name" placeholder="Username">
+
+                <label for="contact">Enter the contact number:</label>
+                <input type="number" id="contact" placeholder="Phone number">
+
+                <label for="email">Enter your email:</label>
+                <input type="email" id="email" placeholder="Email">
+
+                <label for="password">Enter your password:</label>
+                <input type="password" id="password" placeholder="Password">
+              <button type="submit" class="login-button" onclick="completeOrder()" >Login</button>
+                <a href="forgot.html">forgot password</a>
+            </form>
+        </div>
+    </div>
+    <hr>
+
+
+    <footer>
+        <div class="end">
+            <p style="font-family: sans-serif;">Company Name: Task Sphere Pvt Ltd</p>
+           <p>Regd. Office Address : <a href="https://maps.app.goo.gl/eDEJrQZkLnKJhYbF9?g_st=awH R Mahajani Rd, Matunga East, Mumbai, Maharashtra 400019">H R Mahajani Rd, Matunga East, Mumbai, Maharashtra 400019</a></p>
+    
+              <p style="font-family: sans-serif;"> Telephone No.: +91-325258 | E-mail: Helpline@support.TaskSphere.com | Contact No.: +91 9022672625</b></p>
+                
+               <p style="font-family: sans-serif;">Corporate Social Responsibility (CSR) Policy</p><hr>
+            <p>
+            © 2025 TaskSphere.com. All rights reserved.
+        </div>
+        <div class="links">
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </footer>
+   
+
+<script>
+    function validateForm() {
+        let name = document.getElementById("name").value.trim();
+        let contact = document.getElementById("contact").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let errorMessages = [];
+
+        if (name === "") {
+            errorMessages.push("⚠ Name is required.");
+        }
+        if (contact === "" || !/^\d{10}$/.test(contact)) {
+            errorMessages.push("⚠ Enter a valid 10-digit phone number.");
+        }
+        if (email === "" || !email.includes("@") || !email.includes(".")) {
+            errorMessages.push("⚠ Enter a valid email id.");
+        }
+        if (password === "") {
+            errorMessages.push("⚠ Enter a valid password.");
+        }
+
+        if (errorMessages.length > 0) {
+            alert("Please fix the following errors:\n\n" + errorMessages.join("\n"));
+            return false;
+        }
+
+        return true;
+    }
+
+    function completeOrder(event) {
+        event.preventDefault(); // Prevent form submission
+
+        if (validateForm()) {
+            const name = document.getElementById("name").value.trim();
+            alert("✅ Your Login is Successful!!");
+
+            // Hide the login form container
+            document.querySelector(".form-container").style.display = "none";
+
+            // Create and show the welcome message
+            const welcomeDiv = document.createElement("div");
+            welcomeDiv.className = "welcome-message";
+            welcomeDiv.innerHTML = `
+                <h1>Welcome, ${name}!</h1>
+                <p>You have successfully logged in.</p>
+                <a href="calendar.html" style="text-decoration:none;color:white;background-color:#5c6bc0;padding:10px 20px;border-radius:8px;display:inline-block;margin-top:20px;">Go to Home</a>
+            `;
+            welcomeDiv.style.textAlign = "center";
+            welcomeDiv.style.padding = "40px";
+            welcomeDiv.style.background = "#fff";
+            welcomeDiv.style.margin = "50px auto";
+            welcomeDiv.style.width = "80%";
+            welcomeDiv.style.borderRadius = "12px";
+            welcomeDiv.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.2)";
+            document.querySelector(".scontainer").appendChild(welcomeDiv);
+        }
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", completeOrder);
+</script>
+</html>
