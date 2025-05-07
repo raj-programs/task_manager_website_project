@@ -1,7 +1,7 @@
-let projects = [];
-
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
 const projectContainer = document.querySelector("#projectTable tbody");
-const membersInput = document.getElementById("members");
+const membersInput = document.getElementById("membersinput"); // Input for team members
+const membersListDisplay = document.getElementById("membersList"); // Optional, for visual feedback
 let collectedMembers = [];
 
 // Dialog Handling
@@ -12,18 +12,16 @@ function closeDialog() {
     document.getElementById("addProject").style.display = "none";
     document.getElementById("projectForm").reset();
     collectedMembers = [];
+    updateMembersDisplay(); // Clear visual list
 }
 
 // Team Members
-function addMembers() {
-    const memberName = membersInput.value.trim();
-    if (memberName) {
-        collectedMembers.push(memberName);
-        membersInput.value = "";
-    } else {
-        alert("Enter a team member name before clicking ADD TEAM MEMBERS");
+function updateMembersDisplay() {
+    if (membersListDisplay) {
+        membersListDisplay.innerHTML = collectedMembers.map(m => `<li>${m}</li>`).join("");
     }
 }
+
 function collectTeamMembers() {
     if (collectedMembers.length === 0) {
         alert("Please add at least one team member.");
@@ -31,6 +29,21 @@ function collectTeamMembers() {
     }
     alert("Team Members Collected: " + collectedMembers.join(", "));
 }
+
+function addMembers() {
+    const memberName = membersInput.value.trim();
+    if (memberName) {
+        collectedMembers.push(memberName);
+        membersInput.value = "";
+        updateMembersDisplay();
+    } else {
+        alert("Enter a team member name before clicking ADD TEAM MEMBERS");
+    }
+}
+
+
+
+
 
 // Add Project
 function addToList() {
@@ -59,7 +72,21 @@ function addToList() {
     closeDialog();
 }
 
-// Render Main Table
+// Save and Load Projects
+function saveProjects() {
+    localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+function loadProjects() {
+    const saved = localStorage.getItem("projects");
+    if (saved) {
+        projects = JSON.parse(saved);
+    }
+    renderTable();
+    renderTabs();
+}
+
+// Render Table
 function renderTable() {
     projectContainer.innerHTML = "";
 
@@ -72,8 +99,12 @@ function renderTable() {
             <td>${project.deadline}</td>
             <td>${project.status}</td>
             <td>
-                <button onclick="startProject(${index})" id="btn2">Start</button>
-                <button onclick="completeProject(${index})" id="btn2">Complete</button>
+                <button onclick="startProject(${index})" id="btn2" ${project.status !== "Pending" ? "disabled" : ""}>
+                    ${project.status === "In Progress" ? "In Progress" : "Start"}
+                </button>
+                <button onclick="completeProject(${index})" id="btn2" ${project.status === "Completed" ? "disabled" : ""}>
+                    ${project.status === "Completed" ? "Completed" : "Complete"}
+                </button>
                 <button onclick="deleteProject(${index})" id="btn2">Delete</button>
             </td>
         `;
@@ -81,18 +112,22 @@ function renderTable() {
     });
 }
 
-// Project Actions
+// Actions
 function startProject(index) {
-    projects[index].status = "In Progress";
-    saveProjects();
-    renderTable();
-    renderTabs();
+    if (projects[index].status === "Pending") {
+        projects[index].status = "In Progress";
+        saveProjects();
+        renderTable();
+        renderTabs();
+    }
 }
 function completeProject(index) {
-    projects[index].status = "Completed";
-    saveProjects();
-    renderTable();
-    renderTabs();
+    if (projects[index].status !== "Completed") {
+        projects[index].status = "Completed";
+        saveProjects();
+        renderTable();
+        renderTabs();
+    }
 }
 function deleteProject(index) {
     if (confirm("Are you sure you want to delete this project?")) {
@@ -103,30 +138,7 @@ function deleteProject(index) {
     }
 }
 
-// Save & Load from LocalStorage
-function saveProjects() {
-    localStorage.setItem("projectData", JSON.stringify(projects));
-}
-function loadProjects() {
-    const saved = localStorage.getItem("projectData");
-    if (saved) {
-        projects = JSON.parse(saved);
-    }
-    renderTable();
-    renderTabs();
-}
-
-// Search Functionality
-function search() {
-    const searchTerm = document.getElementById("search").value.toLowerCase();
-    const rows = projectContainer.querySelectorAll("tr");
-    rows.forEach(row => {
-        const name = row.children[0].textContent.toLowerCase();
-        row.style.display = name.includes(searchTerm) ? "" : "none";
-    });
-}
-
-// Render Tabs (Overdue, Today, Upcoming)
+// Render Tabs
 function renderTabs() {
     const today = new Date().toISOString().split("T")[0];
 
@@ -144,8 +156,12 @@ function renderTabs() {
             <strong>${project.name}</strong> - ${project.description} <br>
             <em>Deadline: ${project.deadline}</em> - <b>${project.status}</b>
             <br>
-            <button onclick="startProject(${index})" class="btn3">Start</button>
-            <button onclick="completeProject(${index})" class="btn3">Complete</button>
+            <button onclick="startProject(${index})" class="btn3" ${project.status !== "Pending" ? "disabled" : ""}>
+                ${project.status === "In Progress" ? "In Progress" : "Start"}
+            </button>
+            <button onclick="completeProject(${index})" class="btn3" ${project.status === "Completed" ? "disabled" : ""}>
+                ${project.status === "Completed" ? "Completed" : "Complete"}
+            </button>
             <button onclick="deleteProject(${index})" class="btn3">Delete</button>
         `;
 
@@ -159,7 +175,17 @@ function renderTabs() {
     });
 }
 
-// Tab Switch Display
+// Search Projects
+function search() {
+    const searchTerm = document.getElementById("search").value.toLowerCase();
+    const rows = projectContainer.querySelectorAll("tr");
+    rows.forEach(row => {
+        const name = row.children[0].textContent.toLowerCase();
+        row.style.display = name.includes(searchTerm) ? "" : "none";
+    });
+}
+
+// Display Sections
 function display1() {
     document.getElementById("projectList").style.display = "none";
     document.getElementById("overdue").style.display = "block";
@@ -185,7 +211,7 @@ function display4() {
     document.getElementById("upcoming").style.display = "none";
 }
 
-// Style Overdue Tab Heading
+// Initialize
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("overdueHeading").style.color = "red";
     loadProjects();

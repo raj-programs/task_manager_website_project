@@ -116,6 +116,46 @@
         document.getElementById("calendar").classList.remove("shift-calendar");
       }
     </script>
+    <script>
+      function getTasksAndProjects() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+  const taskEvents = tasks.map(task => ({
+    title: "📝 " + task.taskName,
+    date: task.deadline,
+    color: "blue"
+  }));
+
+  const projectEvents = projects.map(project => ({
+    title: "📁 " + project.name,
+    date: project.deadline,
+    color: "green"
+  }));
+
+  return [...taskEvents, ...projectEvents];
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('calendar');
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    events: getTasksAndProjects()
+  });
+  calendar.render();
+
+  // Optional: live refresh button
+  const refreshBtn = document.createElement("button");
+  refreshBtn.textContent = "🔄 Refresh Calendar";
+  refreshBtn.style.margin = "10px";
+  refreshBtn.onclick = function () {
+    calendar.removeAllEvents();
+    calendar.addEventSource(getTasksAndProjects());
+  };
+  document.body.insertBefore(refreshBtn, calendarEl);
+});
+
+    </script>
   </head>
   <body>
 
@@ -131,7 +171,6 @@
       <a href="calendar.html">Home</a>
       <a href="myTasks.html">My Task</a>
       <a href="project.html">Project</a>
-      <a href="#about-me">About Me</a>
     </div>
 
     <!-- Calendar -->

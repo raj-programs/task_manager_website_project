@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   display1(); // Default to main view
 });
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function openDialog() {
   document.getElementById("addTask").style.display = "block";
@@ -40,7 +40,6 @@ function addToTable() {
     alert("Please fill in all fields.");
   }
 }
-
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -68,10 +67,9 @@ function renderTasks() {
     return priorityOrder[b.priority] - priorityOrder[a.priority];
   });
 
-  sortedByDeadline.forEach(task => {
-    // Main task table
-    const row = document.createElement("tr");
-    row.innerHTML = `
+  // Function to generate task row
+  function createRow(task) {
+    return `
       <td>${task.name}</td>
       <td>${task.status}</td>
       <td>${task.deadline}</td>
@@ -86,17 +84,24 @@ function renderTasks() {
         <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
       </td>
     `;
+  }
+
+  // Main table
+  sortedByDeadline.forEach(task => {
+    const row = document.createElement("tr");
+    row.innerHTML = createRow(task);
     tbody.appendChild(row);
   });
 
+  // Deadline table
   sortedByDeadline.forEach(task => {
-    const deadlineRow = document.createElement("tr");
-    deadlineRow.innerHTML = `
+    const row = document.createElement("tr");
+    row.innerHTML = `
       <td>${task.name}</td>
       <td>${task.deadline}</td>
       <td>${task.status}</td>
       <td>
-      <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
+        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
           ${task.status === "In Progress" ? "In Progress" : "Start"}
         </button>
         <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} id="btn2">
@@ -105,17 +110,18 @@ function renderTasks() {
         <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
       </td>
     `;
-    deadlineTable.appendChild(deadlineRow);
+    deadlineTable.appendChild(row);
   });
 
+  // Priority table
   sortedByPriority.forEach(task => {
-    const priorityRow = document.createElement("tr");
-    priorityRow.innerHTML = `
+    const row = document.createElement("tr");
+    row.innerHTML = `
       <td>${task.name}</td>
       <td>${task.priority}</td>
       <td>${task.status}</td>
       <td>
-      <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
+        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
           ${task.status === "In Progress" ? "In Progress" : "Start"}
         </button>
         <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} id="btn2">
@@ -124,7 +130,7 @@ function renderTasks() {
         <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
       </td>
     `;
-    priorityTable.appendChild(priorityRow);
+    priorityTable.appendChild(row);
   });
 }
 
@@ -152,6 +158,7 @@ function deleteTask(id) {
   renderTasks();
 }
 
+// Display toggles
 function display1() {
   document.getElementById("task_container").style.display = "block";
   document.getElementById("deadline_container").style.display = "none";
