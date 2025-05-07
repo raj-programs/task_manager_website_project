@@ -4,12 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projects</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <link rel="stylesheet" href="project.css">
       
     </head>
     <body>
-        <h1>Projects</h1>
+        <div id="Heading">
+            <h1><i class="fa-solid fa-diagram-project"></i> Projects</h1>
+            <img src="project1.jpg" alt="Project" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
+            <img src="project2.jpg" alt="Project" height="120px" style="z-index: 1; position: absolute; left: 5px; top: 5px;">
+            </div>
         <button class="btn" id="btn" onclick="openDialog()"><i class="fa fa-plus"></i>ADD PROJECT</button>
         <label for="search">
             <input type="search" id="search" placeholder="Search for Projects" />
@@ -18,9 +22,10 @@
         </label>
         <hr>
         <nav>
-            <a>OverDue</a>
-            <a>Today</a>
-            <a>Upcoming</a>
+            <a onclick="display4()">All Projects</a>
+            <a onclick="display1()">OverDue</a>
+            <a onclick="display2()">Today</a>
+            <a onclick="display3()">Upcoming</a>
         </nav>
         <hr>
         <div id="addProject">
@@ -34,16 +39,15 @@
                 <label for="deadline">Deadline :
                     <input type="date" id="projectDeadline" required>
                 </label><br></br>
-                <label for="members">Team Members :
+                <label for="members" id="members">Team Members :
                     <input type="text" id="members" placeholder="Enter the team members" required>                    
                     <button type="button" id="addMembersBtn" onclick="addMembers()">ADD TEAM MEMBERS</button>
                     <button type="button" id=submitBtn onclick="collectTeamMembers()">OK</button>
                 </label><br></br>
-                <label for="addProject">
+                <label for="addProject" id="buttons">
                     <button type="submit" id="addProjectBtn" onclick="addToList()">Add Project</button>
-                </label>
-                <label for="cancel">
                     <button type="button" id="cancelBtn" onclick="closeDialog()">Cancel</button>
+                    </label>
             </form>
         </div>
         <div id="projectList">
@@ -60,6 +64,18 @@
 
                 </tbody>
             </table>
+        </div>
+        <div id="overdue">
+        <h2 id="overdueHeading">Overdue</h2>
+        <ul id="overdueList"></ul>
+        </div>
+        <div id="today">
+        <h2>Today</h2>
+        <ul id="todayList"></ul>
+        </div>
+        <div id="upcoming">
+        <h2>Upcoming</h2>
+        <ul id="upcomingList"></ul>
         </div>
         <div id="membersContainer">
 

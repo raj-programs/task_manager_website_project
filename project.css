@@ -44,6 +44,7 @@ table{
     border-radius: 5px;
     border: 1px solid #a3c5f1;
     display: none;
+    justify-content: center;
 
 
 }
@@ -57,7 +58,7 @@ input{
     align-items: center;
     height: 60px;
     font-size: 1.6rem;
-    border-radius: 5px ;
+    border-radius: 5px;
 }
 #addProject input{
     height: 20px;
@@ -69,15 +70,65 @@ input{
 button{
     background-color: white;
     color : #6E6E73;
-    width: 10%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 60px;
     font-size: 1.6rem;
-    margin-left: 2px;
     border-radius: 5px;
+    width: 22%;
 }
-.btn{
-    width: 20%;
+#overdue{
+    display: none;
+    font-size: 30px;
+    list-style: circle;
+}
+#today{
+    display: none;
+    font-size: 30px;
+    list-style: circle;
+}
+#upcoming{
+    display: none;
+    font-size: 30px;
+    list-style: circle;
+}
+h2{
+    text-align: center;
+}
+#btn2{
+    background-color: white;
+    color : #6E6E73;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    width: 23%;
+}
+h1{
+    color : #1D1d1F;
+    font-size: 50px;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    
+}
+#addMembersBtn{
+    width : 20%;
+}
+#submitBtn{
+    width: 15%;
+}
+#members{
+    display: inline-flex;
+    gap: 10px;
+}
+#buttons{
+    display: inline-flex;
+    justify-content: center;
+    width: 50%;
+    gap: 20px;
+
 }
