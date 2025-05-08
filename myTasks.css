@@ -86,6 +86,9 @@ table{
     color :#334663;
     box-sizing: border-box;
     text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: #6E6E73 3px 3px 3px 0px;
 }
 #addTask{
     background-color: #ffffff;
@@ -113,18 +116,20 @@ h2{
     color: #223a59;
 }
 .btn2{
-    background-color: #0c6478;
-    color : #ffffff;
-    width: 20%;
-    padding: 2%;
-    font-size: 15px;
+    background-color: white;
+    color : #6E6E73;
+    width: 10%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1.2rem;
+    font-size: 30px;
     margin-left: 2px;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-
+    border-radius: 5px ;
 
 }
-#buttoncontainer{
+#button{
     display:flex;
     justify-content: center;
     flex-direction: row;
@@ -153,13 +158,12 @@ th{
 #btn2{
     background-color: white;
     color : #6E6E73;
-    width: 25%;
+    width: 15%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 40px;
     font-size: 1.0rem;
-    font-size: 30px;
     margin-left: 2px;
     border-radius: 5px;
 }

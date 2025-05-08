@@ -33,6 +33,9 @@ table{
     color :#334663;
     box-sizing: border-box;
     text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: #6E6E73 3px 3px 3px 0px;
 }
 #addProject{
     background-color: #ffffff;
@@ -82,16 +85,31 @@ button{
     display: none;
     font-size: 30px;
     list-style: circle;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: #6E6E73 3px 3px 3px 0px;
 }
 #today{
     display: none;
     font-size: 30px;
     list-style: circle;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: #6E6E73 3px 3px 3px 0px;
 }
 #upcoming{
     display: none;
     font-size: 30px;
     list-style: circle;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: #6E6E73 3px 3px 3px 0px;
 }
 h2{
     text-align: center;
