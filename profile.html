@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        strong {
+            color: #555;
+        }
+       
+    </style>
+        
+</head>
+<body>
+    <img src="Logo.jpg" alt="Logo" height="120vh" style=" padding: 4px; border-radius: 50%; display: block; margin: 0 auto;">
+    <h1><strong>Task Sphere</strong></h1>
+
+<h1><i class="fa-regular fa-circle-user user-icon"></i> User Details</h1>
+<p><strong>Username:</strong> <span id="displayUsername"></span></p>
+<p><strong>Name:</strong> <span id="displayName"></span></p>
+<p><strong>Contact:</strong> <span id="displayContact"></span></p>
+<p><strong>DOB:</strong> <span id="displayDOB"></span></p>
+<p><strong>Email:</strong> <span id="displayEmail"></span></p>
+<!-- Not displaying password for security -->
+
+<script>
+    document.getElementById("displayUsername").textContent = localStorage.getItem("username");
+    document.getElementById("displayName").textContent = localStorage.getItem("name");
+    document.getElementById("displayContact").textContent = localStorage.getItem("contact");
+    document.getElementById("displayDOB").textContent = localStorage.getItem("DOB");
+    document.getElementById("displayEmail").textContent = localStorage.getItem("email");
+</script>
+
+</body>
+</html>

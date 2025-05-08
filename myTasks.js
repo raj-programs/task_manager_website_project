@@ -22,6 +22,7 @@ function addToTable() {
   const assignee = document.getElementById("Assignee").value;
   const deadline = document.getElementById("Deadline").value;
   const priority = document.getElementById("Priority").value;
+  
 
   if (name && assignee && deadline && priority) {
     const task = {
@@ -40,6 +41,7 @@ function addToTable() {
     alert("Please fill in all fields.");
   }
 }
+
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }

@@ -72,6 +72,42 @@ function addToList() {
     closeDialog();
 }
 
+// Render Main Table
+function renderTable() {
+    projectContainer.innerHTML = "";
+
+    projects.forEach((project, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${project.name}</td>
+            <td>${project.members}</td>
+            <td>${project.description}</td>
+            <td>${project.deadline}</td>
+            <td>${project.status}</td>
+            <td>
+                <button onclick="startProject(${index})" id="btn2">Start</button>
+                <button onclick="completeProject(${index})" id="btn2">Complete</button>
+                <button onclick="deleteProject(${index})" id="btn2">Delete</button>
+            </td>
+        `;
+        projectContainer.appendChild(row);
+    });
+}
+
+// Project Actions
+function startProject(index) {
+    projects[index].status = "In Progress";
+    saveProjects();
+    renderTable();
+    renderTabs();
+}
+function completeProject(index) {
+    projects[index].status = "Completed";
+    saveProjects();
+    renderTable();
+    renderTabs();
+}
+
 // Save and Load Projects
 function saveProjects() {
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -94,7 +130,7 @@ function renderTable() {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${project.name}</td>
-            <td>${project.members}</td>
+            <td><i class="fa-solid fa-users-rectangle"></i> ${project.members}</td>
             <td>${project.description}</td>
             <td>${project.deadline}</td>
             <td>${project.status}</td>

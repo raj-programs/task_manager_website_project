@@ -28,10 +28,16 @@
                     <P class="p1"><b><i>Task Sphere<br>Your Personal Manager !!</i></b></P>
              
                 <label for="name">Enter the username:</label>
-                <input type="text" id="name" placeholder="Username">
+                <input type="text" id="username" placeholder="Username">
+
+                <label for="name">Enter your Name:</label>
+                <input type="text" id="name" placeholder="Name">
 
                 <label for="contact">Enter the contact number:</label>
                 <input type="number" id="contact" placeholder="Phone number">
+
+                <label for="DOB">Enter your DOB</label>
+                <input type="date" id="DOB" placeholder="Date of Birth">
 
                 <label for="email">Enter your email:</label>
                 <input type="email" id="email" placeholder="Email">
@@ -58,23 +64,27 @@
             © 2025 TaskSphere.com. All rights reserved.
         </div>
         <div class="links">
-            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.facebook.com" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
     </footer>
    
 
 <script>
     function validateForm() {
+        let username = document.getElementById("username").value.trim();
         let name = document.getElementById("name").value.trim();
         let contact = document.getElementById("contact").value.trim();
         let email = document.getElementById("email").value.trim();
         let password = document.getElementById("password").value.trim();
+        let DOB = document.getElementById("DOB").value;
         let errorMessages = [];
-
-        if (name === "") {
+        if(name === ""){
             errorMessages.push("⚠ Name is required.");
+        }
+        if (username === "") {
+            errorMessages.push("⚠ Enter a valid username.");
         }
         if (contact === "" || !/^\d{10}$/.test(contact)) {
             errorMessages.push("⚠ Enter a valid 10-digit phone number.");
@@ -84,6 +94,15 @@
         }
         if (password === "") {
             errorMessages.push("⚠ Enter a valid password.");
+        }
+        if (DOB === "") {
+            errorMessages.push("⚠ Enter a valid date of birth.");
+        } else {
+            const dobDate = new Date(DOB);
+            const today = new Date();
+            if (dobDate >= today) {
+                errorMessages.push("⚠ Date of birth must be in the past.");
+            }
         }
 
         if (errorMessages.length > 0) {
@@ -124,5 +143,19 @@
     }
 
     document.getElementById("loginForm").addEventListener("submit", completeOrder);
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form from submitting normally
+
+    // Store form data in localStorage
+    localStorage.setItem("username", document.getElementById("username").value);
+    localStorage.setItem("name", document.getElementById("name").value);
+    localStorage.setItem("contact", document.getElementById("contact").value);
+    localStorage.setItem("DOB", document.getElementById("DOB").value);
+    localStorage.setItem("email", document.getElementById("email").value);
+    localStorage.setItem("password", document.getElementById("password").value);
+
+    // Redirect to display page
+});
 </script>
 </html>
