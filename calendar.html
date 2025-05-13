@@ -147,7 +147,7 @@
   const projects = JSON.parse(localStorage.getItem("projects")) || [];
 
   const taskEvents = tasks.map(task => ({
-    title: "📝 " + task.taskName,
+    title: "📝 " + task.name,
     date: task.deadline,
     color: "blue"
   }));

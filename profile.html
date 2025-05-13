@@ -14,7 +14,9 @@
             color: #333;
             margin: 0;
             padding: 20px;
+            background-size: cover;
         }
+       
         h1 {
             text-align: center;
             color: #333;
@@ -23,9 +25,10 @@
             font-size: 18px;
             margin: 10px 0;
         }
-        strong {
+        strong{
             color: #555;
         }
+
 
         /* Sidebar Navigation */
       .side-nav {
@@ -104,6 +107,55 @@
         height: 100vh;
       }
        
+
+        #card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.end {
+background-color: #fafafc;
+color: #0000008f;
+text-align: center;
+padding: 5px 0 5px 0px;
+
+}
+.links {
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 20px;
+}
+
+.links a {
+font-size: 2rem; 
+margin: 0 15px; 
+color: #6e6e73;
+transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+color: #092147; 
+transform: scale(1.2);
+}
+
     </style>
         
 </head>
@@ -126,15 +178,36 @@
 <div id="profile_container">
     <img src="Logo.jpg" alt="Logo" height="120vh" style=" padding: 4px; border-radius: 50%; display: block; margin: 0 auto;">
     <h1><strong>Task Sphere</strong></h1>
-
-<h1><i class="fa-regular fa-circle-user user-icon"></i> User Details</h1>
+<div id="card">
+<h1><i class="fa-regular fa-circle-user user-icon"></i> User Details</h1><hr>
 <p><strong>Username:</strong> <span id="displayUsername"></span></p>
 <p><strong>Name:</strong> <span id="displayName"></span></p>
 <p><strong>Contact:</strong> <span id="displayContact"></span></p>
 <p><strong>DOB:</strong> <span id="displayDOB"></span></p>
 <p><strong>Email:</strong> <span id="displayEmail"></span></p>
-<!-- Not displaying password for security -->
 </div>
+<!-- Not displaying password for security -->
+
+</div>
+=======
+  <footer>
+        <div class="end">
+            <p style="font-family: sans-serif;">Company Name: Task Sphere Pvt Ltd</p>
+           <p>Regd. Office Address : <a href="https://maps.app.goo.gl/eDEJrQZkLnKJhYbF9?g_st=awH R Mahajani Rd, Matunga East, Mumbai, Maharashtra 400019">H R Mahajani Rd, Matunga East, Mumbai, Maharashtra 400019</a></p>
+    
+              <p style="font-family: sans-serif;"> Telephone No.: +91-325258 | E-mail: Helpline@support.TaskSphere.com | Contact No.: +91 9022672625</b></p>
+                
+               <p style="font-family: sans-serif;">Corporate Social Responsibility (CSR) Policy</p><hr>
+            <p>
+            © 2025 TaskSphere.com. All rights reserved.
+        </div>
+        <div class="links">
+            <a href="https://www.facebook.com" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </footer>
+
 
 <script>
     document.getElementById("displayUsername").textContent = localStorage.getItem("username");
