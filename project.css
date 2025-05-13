@@ -1,3 +1,79 @@
+/* Sidebar Navigation */
+.side-nav {
+    height: 100vh;
+    width: 60px; /* Only show the logo area by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f3f3f3; /* Parent background color */
+    overflow-x: hidden;
+    transition: width 0.3s ease; /* Smooth transition for expanding */
+    padding-top: 4px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .side-nav:hover {
+    width: 250px; /* Expand the sidebar on hover */
+  }
+
+  .nav-items {
+    height: 80vh; /* Child div height */
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: space-between; /* Space out items evenly */
+    width: 100%; /* Ensure it spans the full width of the parent */
+    padding-left: 20px; /* Add padding for spacing */
+  }
+
+  .side-nav a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #333;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the content */
+    gap: 10px; /* Add space between the icon and the text */
+    transition: 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  .side-nav a span {
+    opacity: 0; /* Hide text by default */
+    transform: translateX(-20px); /* Slide text out of view */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .side-nav:hover a span {
+    opacity: 1; /* Show text on hover */
+    transform: translateX(0); /* Slide text into view */
+  }
+
+  .side-nav a i {
+    font-size: 24px; /* Adjust icon size */
+    color: #333; /* Ensure icons are visible */
+  }
+
+  .side-nav a:hover {
+    background-color: #fff;
+  }
+
+.side-nav:hover ~ #project_part {
+    margin-left: 250px; /* Adjust for the expanded sidebar */
+  }
+/* side nav end here */
+
+#project_part{
+        margin-left: 65px; /* Adjust for the collapsed sidebar */
+        margin-right: 0px;
+        padding: 15px;
+        transition: margin-left 0.3s ease;
+        margin-top: 1vh;
+        height: 100vh;
+      }
+
 nav{
     height: 60px;
     font-size: 1.75rem;
@@ -11,6 +87,7 @@ nav{
     word-spacing: 10px;
 
 }
+/* Increases the font size of the text in the nav bar */
 a{
     text-decoration: none;
     color:#ff3c26;
@@ -20,10 +97,10 @@ a{
     border-radius: 5px;
     transition: all 0.05s linear 0s;
 }
-
 a:hover{
     font-size: 35px;
 }
+
 table{
     width: 100%;
     border: 1px solid #a3c5f1;
@@ -79,7 +156,8 @@ button{
     height: 60px;
     font-size: 1.6rem;
     border-radius: 5px;
-    width: 22%;
+    width: 30%;
+    margin-right: 10px;
 }
 #overdue{
     display: none;
@@ -131,6 +209,7 @@ h1{
     text-align: center;
     height: 70px;
     width: 100%;
+    margin-top: 10px;
     
 }
 #addMembersBtn{
@@ -149,4 +228,39 @@ h1{
     width: 50%;
     gap: 20px;
 
+}
+
+/* Reset styles for side navigation bar anchor tags */
+#mySidenav a {
+    all: unset; /* Reset all inherited styles */
+    display: flex; /* Ensure proper layout */
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: inherit; /* Use the default color */
+    font-size: 16px;
+    gap: 10px; /* Space between icon and text */
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Add specific styles for side navigation bar anchor tags */
+#mySidenav a:hover {
+    background-color: #f0f0f0; /* Add hover effect */
+    color: #333; /* Change text color on hover */
+    border-radius: 5px;
+}
+
+/* Style for span tags in the side navigation bar */
+#mySidenav span {
+    font-family: Arial, sans-serif; /* Set font family */
+    font-size: 24px; /* Set font size */
+    color: #333; /* Optional: Adjust text color */
+}
+#searchicon{
+    width: 10%;
+}
+span{
+    font-weight: 400;
 }

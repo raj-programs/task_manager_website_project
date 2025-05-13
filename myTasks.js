@@ -77,13 +77,13 @@ function renderTasks() {
       <td>${task.deadline}</td>
       <td>${task.assignee}</td>
       <td>
-        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
+        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} class="btn54" id="btn3">
           ${task.status === "In Progress" ? "In Progress" : "Start"}
         </button>
-        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} id="btn2">
+        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} class="btn54" id="btn4">
           ${task.status === "Completed" ? "Completed" : "Complete"}
         </button>
-        <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
+        <button onclick="deleteTask(${task.id})" class="btn54" id="btn5">Delete</button>
       </td>
     `;
   }
@@ -103,13 +103,13 @@ function renderTasks() {
       <td>${task.deadline}</td>
       <td>${task.status}</td>
       <td>
-        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
+        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} class="btn54" id="btn6">
           ${task.status === "In Progress" ? "In Progress" : "Start"}
         </button>
-        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} id="btn2">
+        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} class="btn54" id="btn7">
           ${task.status === "Completed" ? "Completed" : "Complete"}
         </button>
-        <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
+        <button onclick="deleteTask(${task.id})" class="btn54" id="btn8">Delete</button>
       </td>
     `;
     deadlineTable.appendChild(row);
@@ -123,13 +123,13 @@ function renderTasks() {
       <td>${task.priority}</td>
       <td>${task.status}</td>
       <td>
-        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} id="btn2">
+        <button onclick="startTask(${task.id})" ${task.status !== "Pending" ? "disabled" : ""} class="btn54" id="btn9">
           ${task.status === "In Progress" ? "In Progress" : "Start"}
         </button>
-        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} id="btn2">
+        <button onclick="completeTask(${task.id})" ${task.status === "Completed" ? "disabled" : ""} class="btn54" id="btn10">
           ${task.status === "Completed" ? "Completed" : "Complete"}
         </button>
-        <button onclick="deleteTask(${task.id})" id="btn2">Delete</button>
+        <button onclick="deleteTask(${task.id})" class="btn54" id="btn3">Delete</button>
       </td>
     `;
     priorityTable.appendChild(row);

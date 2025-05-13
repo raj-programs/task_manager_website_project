@@ -13,13 +13,31 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
 <link rel="stylesheet" href="myTasks.css" />
+
 </head>
+
 <body>
 
+    <!-- Sliding Sidebar -->
+    <div id="mySidenav" class="side-nav">
+      
+      <div class="nav-items">
+      <a href="#"><img src="Logo.jpg" alt="Logo" width="40px" style="border-radius: 50%;"><span>Task Sphere</span></a>
+      <a href="calendar.html"><i class="fa-solid fa-house-chimney"></i><span>Home</span></a>
+      <a href="myTasks.html"><i class="fa-regular fa-pen-to-square"></i><span>My Task</span></a>
+      <a href="project.html"><i class="fa-solid fa-diagram-project"></i><span>Project</span></a>
+      <a href="profile.html"><i class="fa-regular fa-circle-user user-icon"></i><span>Profile</span></a>
+      <a href="Login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+    </div>
+  </div>
+  <!-- Slidebar End -->
+
+
+<div id="myTasks_container">
 <div id="Heading">
 <h1><i class="fa-regular fa-pen-to-square"></i> My Tasks </h1>
-<img src="Task.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
-<img src="TaskR.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; left: 5px; top: 5px;">
+<img src="TaskR.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 5px; top: 5px;">
+<img src="Task.jpg" alt="Task" height="120px" style="z-index: 1; position: absolute; right: 133px; top: 5px;">
 </div> 
 
   <div class="searchbar">
@@ -40,10 +58,10 @@
     <table id="task_table">
         <thead>
         <tr>
-            <th>Task Name</th>
-            <th>Status</th>
-            <th>Deadline</th>
-            <th>Assignee</th>
+            <th>TASK NAME</th>
+            <th>STATUS</th>
+            <th>DEADLINE</th>
+            <th>ASSIGNEE</th>
         </tr>
         </thead>
         <tbody class="task_table_body">
@@ -56,20 +74,25 @@
   <div id="addTask">
     <form onSubmit="addToTable(); return true;">
       <h2>New Task</h2>
-      <label for="taskName">Task Name:</label>
+      
+      <label for="taskName">Task Name :</label>
       <input type="text" id="taskName" name="taskName" placeholder="Enter the task name" required><br></br>
-      <label for="Assignee">Assignee:</label>
+      
+      <label for="Assignee" id="assignee">Assignee :</label>
       <input type="text" id="Assignee" name="Assignee" required><br></br>
-        <label for="Deadline">Deadline:</label>
-        <input type="date" id="Deadline" name="Deadline" required><p id="message"></p><br></br>
-        <label for="Priority">Priority:</label>
+      
+      <label for="Deadline" id="deadline">Deadline :</label>
+        <input type="date" id="Deadline" name="Deadline" required><p id="message"></p>
+      
+        <label for="Priority" id="priority">Priority :</label>
         <select id="Priority" name="Priority" required>
             <option value="" disabled selected>Select Priority</opt<p>
             <option value="High">High</option>
             <option value="Medium">Mid</option>
             <option value="Low">Low</option>
             </select><br></br>
-            <label for="button" id="button">
+           
+        <label for="button" id="button">
         <button type="submit" class="btn2" onclick="addToTable()">Create Task</button>
         <button type="button" class="btn2" onclick="hideDialog()">Cancel</button>
         </label>
@@ -105,6 +128,7 @@
       </tbody>
            </table>
            </div>
+</div>
            
   <script src="myTasks.js"></script>
     

@@ -26,11 +26,104 @@
         strong {
             color: #555;
         }
+
+        /* Sidebar Navigation */
+      .side-nav {
+        height: 100vh;
+        width: 60px; /* Only show the logo area by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #f3f3f3; /* Parent background color */
+        overflow-x: hidden;
+        transition: width 0.3s ease; /* Smooth transition for expanding */
+        padding-top: 4px;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column; /* Arrange items in a column */
+        align-items: center; /* Center items horizontally */
+      }
+
+      .side-nav:hover {
+        width: 250px; /* Expand the sidebar on hover */
+      }
+
+      .nav-items {
+        height: 80vh; /* Child div height */
+        display: flex;
+        flex-direction: column; /* Arrange items in a column */
+        justify-content: space-between; /* Space out items evenly */
+        width: 100%; /* Ensure it spans the full width of the parent */
+        padding-left: 20px; /* Add padding for spacing */
+      }
+
+      .side-nav a {
+        padding: 10px 0;
+        text-decoration: none;
+        font-size: 1.5em;
+        color: #333;
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Vertically center the content */
+        gap: 10px; /* Add space between the icon and the text */
+        transition: 0.3s;
+        white-space: nowrap; /* Prevent text wrapping */
+      }
+
+      .side-nav a span {
+        opacity: 0; /* Hide text by default */
+        transform: translateX(-20px); /* Slide text out of view */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .side-nav:hover a span {
+        opacity: 1; /* Show text on hover */
+        transform: translateX(0); /* Slide text into view */
+      }
+
+      .side-nav a i {
+        font-size: 24px; /* Adjust icon size */
+        color: #333; /* Ensure icons are visible */
+      }
+
+      .side-nav a:hover {
+        background-color: #fff;
+      }
+/* side nav end here */
+
+.side-nav:hover ~ #profile_container {
+    margin-left: 250px; /* Adjust for the expanded sidebar */
+  }
+/* side nav end here */
+
+#profile_container{
+        margin-left: 65px; /* Adjust for the collapsed sidebar */
+        margin-right: 0px;
+        padding: 15px;
+        transition: margin-left 0.3s ease;
+        margin-top: 1vh;
+        height: 100vh;
+      }
        
     </style>
         
 </head>
 <body>
+
+    <!-- Sliding Sidebar -->
+<div id="mySidenav" class="side-nav">
+  
+    <div class="nav-items">
+    <a href="#"><img src="Logo.jpg" alt="Logo" width="40px" style="border-radius: 50%;"><span>Task Sphere</span></a>
+    <a href="calendar.html"><i class="fa-solid fa-house-chimney"></i><span>Home</span></a>
+    <a href="myTasks.html"><i class="fa-regular fa-pen-to-square"></i><span>My Task</span></a>
+    <a href="project.html"><i class="fa-solid fa-diagram-project"></i><span>Project</span></a>
+    <a href="profile.html"><i class="fa-regular fa-circle-user user-icon"></i><span>Profile</span></a>
+    <a href="Login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+  </div>
+</div>
+<!-- Slidebar End -->
+
+<div id="profile_container">
     <img src="Logo.jpg" alt="Logo" height="120vh" style=" padding: 4px; border-radius: 50%; display: block; margin: 0 auto;">
     <h1><strong>Task Sphere</strong></h1>
 
@@ -41,6 +134,7 @@
 <p><strong>DOB:</strong> <span id="displayDOB"></span></p>
 <p><strong>Email:</strong> <span id="displayEmail"></span></p>
 <!-- Not displaying password for security -->
+</div>
 
 <script>
     document.getElementById("displayUsername").textContent = localStorage.getItem("username");

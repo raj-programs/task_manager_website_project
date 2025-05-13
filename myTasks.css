@@ -50,6 +50,9 @@ h1{
     text-align: center;
     height: 70px;
      width: 100%;
+     margin-top: 0px;
+     margin-bottom: 55PX;
+     background-color: #f3f3f3;
     }
 nav{
     height: 60px;
@@ -66,16 +69,17 @@ nav{
 }
 a{
     text-decoration: none;
-    color:#ff3c26;
+    color:#80B918;
     font-weight: 600;
     border: 2px solid #1D1d1F;
-    padding: 5px 30px 5px 30px;
+    padding: 7.5px 50px 7.5px 50px;
     border-radius: 5px;
     transition: all 0.05s linear 0s;
 }
 
 a:hover{
     font-size: 35px;
+    color: #ff3c26;
 }
 table{
     width: 100%;
@@ -83,12 +87,15 @@ table{
     border-collapse: collapse;
     margin-top: 2%;
     font-size: 20px;
-    color :#334663;
+    color :#284B63;
     box-sizing: border-box;
     text-align: center;
     background-color: #ffffff;
     border-radius: 5px;
-    box-shadow: #6E6E73 3px 3px 3px 0px;
+    border-left: none;
+    border-right: none;
+    padding: 10% 0% 10% 0%;
+    
 }
 #addTask{
     background-color: #ffffff;
@@ -118,7 +125,7 @@ h2{
 .btn2{
     background-color: white;
     color : #6E6E73;
-    width: 10%;
+    width: 20%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -166,4 +173,176 @@ th{
     font-size: 1.0rem;
     margin-left: 2px;
     border-radius: 5px;
+}
+
+/* Sidebar Navigation */
+.side-nav {
+    height: 100vh;
+    width: 60px; /* Only show the logo area by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f3f3f3; /* Parent background color */
+    overflow-x: hidden;
+    transition: width 0.3s ease; /* Smooth transition for expanding */
+    padding-top: 4px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .side-nav:hover {
+    width: 250px; /* Expand the sidebar on hover */
+  }
+
+  .nav-items {
+    height: 80vh; /* Child div height */
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: space-between; /* Space out items evenly */
+    width: 100%; /* Ensure it spans the full width of the parent */
+    padding-left: 20px; /* Add padding for spacing */
+  }
+
+  .side-nav a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #333;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the content */
+    gap: 10px; /* Add space between the icon and the text */
+    transition: 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+background: none; /* Remove any background */
+    border: none; /* Remove the border */
+    box-shadow: none; /* Remove any shadow */
+  }
+
+  .side-nav a span {
+    opacity: 0; /* Hide text by default */
+    transform: translateX(-20px); /* Slide text out of view */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .side-nav:hover a span {
+    opacity: 1; /* Show text on hover */
+    transform: translateX(0); /* Slide text into view */
+  }
+
+  .side-nav a i {
+    font-size: 24px; /* Adjust icon size */
+    color: #333; /* Ensure icons are visible */
+  }
+
+  .side-nav a:hover {
+    background-color: #fff;
+  }
+/* side nav end here */
+#myTasks_container
+    {
+        margin-left: 65px; /* Adjust for the collapsed sidebar */
+        margin-right: 0px;
+        padding: 0px;
+        transition: margin-left 0.3s ease;
+        margin-top: 1vh;
+        height: 100vh; /* Full height for the main content */
+      }
+      .side-nav:hover ~ #myTasks_container {
+        margin-left: 250px; /* Adjust for the expanded sidebar */
+      }
+
+/* Style for span tags in the side navigation bar */
+#mySidenav span {
+    font-family: Arial, sans-serif; /* Set font family */
+    font-size: 24px; /* Set font size */
+    color: #333; /* Optional: Adjust text color */
+}
+span{
+    font-weight: 400;
+}
+#Priority{
+    height: 7vh;
+    width: 20%;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22PX;
+    font-weight: 500;
+    color: #6E6E73;
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 3px;
+    
+}
+#Dealine{
+    font-family: 'Times New Roman', Times, serif;
+    width: 55%;
+    padding: 1.8%;
+    font-size: 30px;
+    margin-left: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1.6rem;
+    border-radius: 5px ;
+}
+#Assignee{
+    margin-right: 5%;
+    width: 55%;
+    padding: 1.8%;
+    font-size: 30px;
+    margin-left: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1.6rem;
+    border-radius: 5px ;
+}
+#taskName{
+    margin-left: 5%;
+    width: 55%;
+    padding: 1.8%;
+    font-size: 30px;
+    margin-left: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1.6rem;
+    border-radius: 5px ;
+}
+#assignee{
+    margin-right: 1.9%;
+}
+#deadline{
+    margin-right: 1.9%;
+}
+#priority{
+    margin-right: 3.2%;
+}
+.btn54{
+    width: 30%;
+    height: 5vh;
+    gap: 10px;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 5px;
+
+}
+#btn3:hover{
+    background-color: #FFFF3F;
+}
+
+#btn4:hover{
+    background-color: #55a630;
+}
+#btn4:active{
+    background-color: #FFFF3F;
+}
+#btn5:hover{
+    background-color: red;
 }
